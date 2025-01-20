@@ -7,3 +7,20 @@ declare namespace App {
 	// interface Error {}
 	// interface Platform {}
 }
+
+declare global {
+
+    type UserType = {
+        displayName: string | null;
+        uid: string;
+        email: string | null;
+    };
+
+    type consultationType = {
+        id: string;
+        title: string;
+		description: string;
+    };
+    
+    namespace App {	}
+}

@@ -1,9 +1,14 @@
-<script>
+<script lang="ts">
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
 
-  let id;
-  let consultation;
+  let id:number;
+  let consultation: {
+    id: number;
+    title: string;
+    description: string;
+    questions: { id: number; title: string }[];
+  } | undefined;
 
   // Exemple de données fictives
   const consultations = [
@@ -43,7 +48,7 @@
 
     <div>
       {#each consultation.questions as question (question.id)}
-        <div class="mb-4 p-4 border rounded-lg shadow-sm bg-gray-50">
+        <div class="card card-hover p-4 my-4 cursor-pointer">
           <h2 class="text-lg font-semibold">{question.title}</h2>
           <button class="btn variant-filled mt-2">Répondre à cette question</button>
         </div>
